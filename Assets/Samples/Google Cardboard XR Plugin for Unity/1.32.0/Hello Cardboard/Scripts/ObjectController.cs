@@ -70,8 +70,11 @@ public class ObjectController : MonoBehaviour
         float angle = Random.Range(-Mathf.PI, Mathf.PI);
         float distance = Random.Range(_minObjectDistance, _maxObjectDistance);
         float height = Random.Range(_minObjectHeight, _maxObjectHeight);
-        Vector3 newPos = new Vector3(Mathf.Cos(angle) * distance, height,
-                                     Mathf.Sin(angle) * distance);
+        Vector3 newPos = new Vector3(
+            Mathf.Cos(angle) * distance,
+            height,
+            Mathf.Sin(angle) * distance
+        );
 
         // Moves the parent to the new position (siblings relative distance from their parent is 0).
         transform.parent.localPosition = newPos;
@@ -84,7 +87,7 @@ public class ObjectController : MonoBehaviour
     /// <summary>
     /// This method is called by the Main Camera when it starts gazing at this GameObject.
     /// </summary>
-    public void OnPointerEnter()
+    public void OnPointerEnterXR()
     {
         SetMaterial(true);
     }
@@ -92,7 +95,7 @@ public class ObjectController : MonoBehaviour
     /// <summary>
     /// This method is called by the Main Camera when it stops gazing at this GameObject.
     /// </summary>
-    public void OnPointerExit()
+    public void OnPointerExitXR()
     {
         SetMaterial(false);
     }
@@ -101,7 +104,7 @@ public class ObjectController : MonoBehaviour
     /// This method is called by the Main Camera when it is gazing at this GameObject and the screen
     /// is touched.
     /// </summary>
-    public void OnPointerClick()
+    public void OnPointerClickXR()
     {
         TeleportRandomly();
     }
